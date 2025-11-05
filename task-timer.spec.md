@@ -59,11 +59,12 @@ Each timer entry displays its state and provides controls for manipulation.
 
 -   **Framework**: React 18+
 -   **Language**: TypeScript
--   **Styling**: Tailwind CSS, loaded via CDN for rapid, utility-first styling.
+-   **Build Tool**: Vite
+-   **Styling**: Tailwind CSS, integrated into the build process via PostCSS.
 -   **State Management**:
     -   React Hooks (`useState`, `useEffect`, `useCallback`, `useMemo`).
     -   A central custom hook, `useTimers`, encapsulates all logic for timer state management and `localStorage` synchronization. This promotes separation of concerns and reusability.
--   **Execution Environment**: The application runs entirely client-side in the browser. It uses an `importmap` to load React dependencies from a CDN, requiring no local build step.
+-   **Execution Environment**: The application is developed using a Node.js environment with Vite's dev server. For production, it is compiled into static HTML, JS, and CSS files in a `dist/` directory.
 -   **Data Storage**:
     -   `localStorage` is used for persistence.
     -   The entire array of timers is serialized to a JSON string and stored under a single key (`react-timers-list`).
@@ -72,13 +73,23 @@ Each timer entry displays its state and provides controls for manipulation.
 
 ```
 .
-├── index.html              # Main HTML entry point, includes CDN links and root div.
-├── index.tsx               # Renders the React application into the DOM.
-├── App.tsx                 # Main application component, manages layout and renders timers.
-├── metadata.json           # Application metadata.
-├── types.ts                # TypeScript type definitions (e.g., TimerState).
-├── components/
-│   └── TimerItem.tsx       # Component for displaying and controlling a single timer.
-└── hooks/
-    └── useTimers.ts        # Custom hook for all timer state logic and persistence.
+├── public/
+│   └── index.html          # The HTML template.
+├── src/
+│   ├── components/
+│   │   └── TimerItem.tsx   # Component for a single timer item.
+│   ├── hooks/
+│   │   └── useTimers.ts    # Custom hook for timer logic and persistence.
+│   ├── App.tsx             # Main application component.
+│   ├── index.css           # CSS entry point for Tailwind CSS.
+│   ├── index.tsx           # React application entry point.
+│   └── types.ts            # Shared TypeScript types.
+├── package.json            # Defines project dependencies and npm scripts.
+├── postcss.config.js       # PostCSS configuration for Tailwind.
+├── README.md               # Project overview and instructions.
+├── tailwind.config.js      # Tailwind CSS theme and content configuration.
+├── task-timer.spec.md      # This specification document.
+├── tsconfig.json           # Main TypeScript configuration.
+├── tsconfig.node.json      # TypeScript configuration for build scripts.
+└── vite.config.ts          # Vite build tool configuration.
 ```
