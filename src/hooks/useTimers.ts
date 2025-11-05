@@ -28,7 +28,7 @@ export const useTimers = () => {
   
   const addTimer = useCallback((name: string) => {
     const newTimer: TimerState = {
-      id: Date.now().toString() + Math.random().toString(36).substr(2, 9),
+      id: crypto.randomUUID(),
       name: name.trim() || 'Untitled Task',
       isRunning: true,
       startTime: Date.now(),
