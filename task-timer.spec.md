@@ -64,7 +64,7 @@ Each timer entry displays its state and provides controls for manipulation.
 -   **State Management**:
     -   React Hooks (`useState`, `useEffect`, `useCallback`, `useMemo`).
     -   A central custom hook, `useTimers`, encapsulates all logic for timer state management and `localStorage` synchronization. This promotes separation of concerns and reusability.
--   **Execution Environment**: The application is developed using a Node.js environment with Vite's dev server. For production, it is compiled into static HTML, JS, and CSS files in a `dist/` directory.
+-   **Execution Environment**: The application is developed using a Node.js environment with Vite's dev server. For production, it is compiled into static HTML, JS, and CSS files in a `dist/` directory. The application is configured to be hosted on the `/task-timer/` subpath.
 -   **Data Storage**:
     -   `localStorage` is used for persistence.
     -   The entire array of timers is serialized to a JSON string and stored under a single key (`react-timers-list`).
