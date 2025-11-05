@@ -1,5 +1,0 @@
-{
-  "name": "Task Timer",
-  "description": "A one-page webapp for tracking multiple running timers. It saves your timers to local storage, so they keep running even when the page is closed.",
-  "requestFramePermissions": []
-}
